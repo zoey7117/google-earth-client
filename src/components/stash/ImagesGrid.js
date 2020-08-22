@@ -1,27 +1,18 @@
 import React from 'react';
 import ImageSingle from './ImageSingle';
-import { Card, Image, Grid } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 
 class Images extends React.Component {
 	// console.log(props);
+	renderImages = (allimages) => {
+		return allimages.map((image, idx) => <ImageSingle key={idx} image={image} />);
+	};
 	render() {
 		console.log(this.props, this.props.images);
 		const allimages = this.props.images;
+		console.log(allimages);
 
-		return allimages.map((photo) => {
-			return (
-				<Card key={photo.id} className="photo-card">
-					<Image src={photo.image} alt="" className="photo-image" height={265} />
-					{
-						<Card.Content>
-							{/* <Card.Description>
-								<h3>{photo.name}</h3>
-							</Card.Description> */}
-						</Card.Content>
-					}
-				</Card>
-			);
-		});
+		return <div>{this.renderImages}</div>;
 	}
 }
 

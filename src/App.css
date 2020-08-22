@@ -1,26 +1,75 @@
 .App {
 	text-align: center;
 }
+
 * {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+.container {
+	width: 100vw;
+	height: 100vh;
+	text-align: center;
+	margin-top: 100px;
+	/* display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: inherit; */
+}
+.ui.card {
+	width: 300px;
+	height: 300px;
+	/* width: 31%; */
+	/* hei */
+	display: inline-grid;
 }
 
-.imagesingle-card {
+.card {
 	text-align: center;
 	letter-spacing: 1px;
 	border: grey solid 1px;
 	padding: 1rem;
-	width: 20rem;
-	height: 31rem;
+	/* width: 20rem;
+	height: 31rem; */
 	display: inline-grid;
-	margin: 1rem 1rem;
+	margin-top: -1px;
+	margin-left: -1px;
+	/* margin: 1rem 1rem; */
 }
-.magesingle-image {
+.card:nth-child(1) {
+	margin-top: 1px;
+}
+
+/* .photo-card {
+	text-align: center;
+	letter-spacing: 1px;
+	border: grey solid 1px;
+	/* padding: 1rem; */
+/* width: 20rem; */
+/* width: 30%;
+	height: auto;
+	display: inline-grid; */
+/* margin: 1rem 1rem; */
+/* }  */
+.photo-image {
+	object-fit: cover;
 	justify-self: center;
-	height: 17.5rem;
-	width: 17.5rem;
+	width: 100%;
+	max-height: auto;
+	/* height: 17.5rem; */
+	/* width: 17.5rem; */
 }
-img .ui.image {
+/* img .ui.image {
+	background: black;
 	width: 100%;
 	height: 100%;
-}
+} */
+/* .container {
+	margin-top: 20px;
+	padding: 1rem;
+	width: stretch;
+	height: auto;
+	display: none;
+	text-align: center;
+	align-items: center;
+} */

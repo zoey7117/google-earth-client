@@ -4,8 +4,7 @@ import ImagesContainer from './containers/ImagesContainer';
 
 function App() {
 	return (
-		<div className="App">
-			hi
+		<div className="container">
 			<ImagesContainer />
 		</div>
 	);

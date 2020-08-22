@@ -31,6 +31,7 @@ class ImagesContainer extends React.Component {
 		return (
 			<div>
 				<Images
+					key={this.state.id}
 					images={this.state.images}
 					imageFilter={this.filteredImages}
 					handleImageView={this.handleImageView}

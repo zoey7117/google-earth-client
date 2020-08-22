@@ -1,6 +1,6 @@
 import React from 'react';
 import ImageSingle from './ImageSingle';
-import { Card, Image, Grid } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 
 class Images extends React.Component {
 	// console.log(props);
@@ -11,12 +11,12 @@ class Images extends React.Component {
 		return allimages.map((photo) => {
 			return (
 				<Card key={photo.id} className="photo-card">
-					<Image src={photo.image} alt="" className="photo-image" height={265} />
+					<Image src={photo.image} alt="" className="photo-image" />
 					{
 						<Card.Content>
-							{/* <Card.Description>
+							<Card.Description>
 								<h3>{photo.name}</h3>
-							</Card.Description> */}
+							</Card.Description>
 						</Card.Content>
 					}
 				</Card>
