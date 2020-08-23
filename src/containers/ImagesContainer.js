@@ -1,5 +1,6 @@
 import React from 'react';
 import Images from '../components/Images';
+import SearchBar from '../components/SearchBar';
 
 class ImagesContainer extends React.Component {
 	state = {
@@ -11,6 +12,7 @@ class ImagesContainer extends React.Component {
 	};
 
 	imageFilter = (e) => {
+		console.log(e.target);
 		this.setState({
 			inputValue: e.target.value
 		});
@@ -21,6 +23,7 @@ class ImagesContainer extends React.Component {
 			this.setState({ images: resp });
 		});
 	}
+	onChange = () => {};
 
 	render() {
 		console.log(this.state);
@@ -30,13 +33,8 @@ class ImagesContainer extends React.Component {
 
 		return (
 			<div>
-				<Images
-					key={this.state.id}
-					images={this.state.images}
-					imageFilter={this.filteredImages}
-					handleImageView={this.handleImageView}
-					inputValue={this.inputValue}
-				/>
+				<Images key={this.state.id} images={this.state.images} handleImageView={this.handleImageView} />
+				<SearchBar inputValue={this.inputValue} imageFilter={filteredImages} />
 			</div>
 		);
 	}

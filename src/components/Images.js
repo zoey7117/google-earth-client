@@ -5,7 +5,7 @@ import { Card, Image, Grid } from 'semantic-ui-react';
 class Images extends React.Component {
 	// console.log(props);
 	render() {
-		console.log(this.props, this.props.images);
+		// console.log(this.props, this.props.images);
 		const allimages = this.props.images;
 
 		return allimages.map((photo) => {
