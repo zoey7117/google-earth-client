@@ -1,5 +1,4 @@
 import React from 'react';
-import ImageItem from './ImageItem';
 
 const SearchBar = (props) => {
 	console.log(props);
@@ -11,7 +10,7 @@ const SearchBar = (props) => {
 						<h3>search by name of country</h3>
 					</label>
 					<br />
-					<input type="text" value={props.inputValue} onChange={props.imageFilter} />
+					<input type="text" value={props.inputValue} onChange={props.imageFilterOnChange} />
 				</div>
 			</div>
 		</div>

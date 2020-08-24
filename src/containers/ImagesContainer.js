@@ -5,8 +5,7 @@ import Images from '../components/Images';
 class ImagesContainer extends Component {
 	state = {
 		images: [],
-		image: {},
-		//  isPetViewOn: false,
+		// image: {},
 		sortValue: '',
 		inputValue: ''
 	};
@@ -28,24 +27,14 @@ class ImagesContainer extends Component {
 	};
 
 	handleSortImages = (event) => {
-		//  console.log("sort button", this.state.sortValue)
+		console.log('this.state.sortValue'.this.state.sortValue);
 		this.setState({
 			sortValue: event.target.value
 		});
 	};
 
 	sortImages = (images) => {
-		if (this.state.sortValue === 'Name') {
-			return [ ...images ].sort((a, b) => {
-				if (a.name > b.name) {
-					return 1;
-				} else if (a.name < b.name) {
-					return -1;
-				} else {
-					return 0;
-				}
-			});
-		} else if (this.state.sortValue === 'location') {
+		if (this.state.sortValue === 'location') {
 			return [ ...images ].sort((a, b) => {
 				if (a.location > b.location) {
 					return 1;
@@ -67,12 +56,11 @@ class ImagesContainer extends Component {
 
 		return (
 			<div>
-				<Images key={this.state.id} images={this.state.images} />
-				<SearchBar
+				<Images
+					// key={this.state.id} images={this.state.images}
 					images={this.sortImages(filteredImages)}
-					imageFilterOnChange={this.imageFilterOnChange}
-					inputValue={this.state.inputValue}
 				/>
+				<SearchBar imageFilterOnChange={this.imageFilterOnChange} onChange={this.handleSortImages} />
 			</div>
 		);
 	}
