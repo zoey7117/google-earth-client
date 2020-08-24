@@ -1,42 +1,81 @@
-import React from 'react';
-import Images from '../components/Images';
+import React, { Component } from 'react';
 import SearchBar from '../components/SearchBar';
+import Images from '../components/Images';
 
-class ImagesContainer extends React.Component {
+class ImagesContainer extends Component {
 	state = {
 		images: [],
 		image: {},
-		isImageViewOn: false,
+		//  isPetViewOn: false,
 		sortValue: '',
 		inputValue: ''
 	};
 
-	imageFilter = (e) => {
-		console.log('hi from onChange', e.target.value);
+	componentDidMount() {
+		fetch('http://localhost:3000/images').then((resp) => resp.json()).then((resp) => {
+			//  console.log(petsData)
+			this.setState({
+				images: resp
+			});
+		});
+	}
+
+	imageFilterOnChange = (event) => {
+		console.log('hi from onChange', event.target.value);
 		this.setState({
-			inputValue: e.target.value
+			inputValue: event.target.value
 		});
 	};
 
-	componentDidMount() {
-		fetch('http://localhost:3000/images').then((resp) => resp.json()).then((imagesData) => {
-			this.setState({ images: imagesData });
+	handleSortImages = (event) => {
+		//  console.log("sort button", this.state.sortValue)
+		this.setState({
+			sortValue: event.target.value
 		});
-	}
-	onChange = () => {};
+	};
+
+	sortImages = (images) => {
+		if (this.state.sortValue === 'Name') {
+			return [ ...images ].sort((a, b) => {
+				if (a.name > b.name) {
+					return 1;
+				} else if (a.name < b.name) {
+					return -1;
+				} else {
+					return 0;
+				}
+			});
+		} else if (this.state.sortValue === 'location') {
+			return [ ...images ].sort((a, b) => {
+				if (a.location > b.location) {
+					return 1;
+				} else if (a.location < b.location) {
+					return -1;
+				} else {
+					return 0;
+				}
+			});
+		} else {
+			return images;
+		}
+	};
 
 	render() {
-		console.log(this.state);
 		const filteredImages = this.state.images.filter((image) => {
-			return image.name.toLowerCase().includes(this.state.inputValue.toLowerCase());
+			return image.location.toLowerCase().includes(this.state.inputValue.toLowerCase());
 		});
 
 		return (
 			<div>
-				<Images key={this.state.id} images={this.state.images} handleImageView={this.handleImageView} />
-				<SearchBar inputValue={this.inputValue} imageFilter={filteredImages} />
+				<Images key={this.state.id} images={this.state.images} />
+				<SearchBar
+					images={this.sortImages(filteredImages)}
+					imageFilterOnChange={this.imageFilterOnChange}
+					inputValue={this.state.inputValue}
+				/>
 			</div>
 		);
 	}
 }
+
 export default ImagesContainer;
