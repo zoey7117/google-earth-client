@@ -12,15 +12,15 @@ class ImagesContainer extends React.Component {
 	};
 
 	imageFilter = (e) => {
-		console.log('hi from onChange', e.target.value);
+		console.log(e.target);
 		this.setState({
 			inputValue: e.target.value
 		});
 	};
 
 	componentDidMount() {
-		fetch('http://localhost:3000/images').then((resp) => resp.json()).then((imagesData) => {
-			this.setState({ images: imagesData });
+		fetch('http://localhost:3000/images').then((resp) => resp.json()).then((resp) => {
+			this.setState({ images: resp });
 		});
 	}
 	onChange = () => {};

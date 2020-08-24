@@ -4,18 +4,12 @@ import { Card, Image, Grid } from 'semantic-ui-react';
 
 class Images extends React.Component {
 	// console.log(props);
-
-	renderImages() {
-		return this.props.images.map((image) => <ImageSingle key={image.id} image={image} />);
-	}
 	render() {
 		// console.log(this.props, this.props.images);
 		const allimages = this.props.images;
 
 		return allimages.map((photo) => {
 			return (
-				// <div>
-				// 	<div>{this.renderImages()}</div>
 				<Card key={photo.id} className="photo-card">
 					<Image src={photo.image} alt="" className="photo-image" height={265} />
 					{
@@ -26,7 +20,6 @@ class Images extends React.Component {
 						</Card.Content>
 					}
 				</Card>
-				// </div>
 			);
 		});
 	}
