@@ -1,32 +1,34 @@
 import React from 'react';
-import ImageSingle from './ImageSingle';
-import { Card, Image, Grid } from 'semantic-ui-react';
+import ImageCard from './ImageCard';
+import { Link } from 'react-router-dom';
+
+import { Card, Image } from 'semantic-ui-react';
 
 class Images extends React.Component {
 	// console.log(props);
 
-	renderImages() {
-		return this.props.images.map((image) => <ImageSingle key={image.id} image={image} />);
-	}
+	cardClickHandler = () => {
+		// localStorage.setItem('selectedCard', photoId);
+		console.log('click');
+	};
+
+	// renderImages() {
+	// 	return this.props.images.map((image) => <ImageCard key={image.id} image={image} />);
+	// }
+
 	render() {
+		let singlePhoto = '';
+
+		singlePhoto = this.props.images.map((image) => <ImageCard key={image.id} image={image} />);
 		// console.log(this.props, this.props.images);
 		const allimages = this.props.images;
 
 		return allimages.map((photo) => {
 			return (
-				// <div>
-				// 	<div>{this.renderImages()}</div>
-				<Card key={photo.id} className="photo-card">
+				<Card key={photo.id} className="photo" onClick={this.cardClickHandler}>
 					<Image src={photo.image} alt="" className="photo-image" height={265} />
-					{
-						<Card.Content>
-							{/* <Card.Description>
-								<h3>{photo.name}</h3>
-							</Card.Description> */}
-						</Card.Content>
-					}
+					{/* <Card.Content>{singlePhoto}</Card.Content> */}
 				</Card>
-				// </div>
 			);
 		});
 	}
@@ -35,8 +37,5 @@ class Images extends React.Component {
 export default Images;
 
 {
-	/* <label htmlFor="search">
-					<h3>search by name of country</h3>
-				</label>
-				<input type="text" value={props.inputValue} onChange={props.imageFilter} /> */
+	/* <Card.Content onClick={this.toggleCard}> */
 }

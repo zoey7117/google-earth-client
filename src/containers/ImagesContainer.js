@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import SearchBar from '../components/SearchBar';
 import Images from '../components/Images';
+import ImageCard from '../components/ImageCard';
 
 class ImagesContainer extends Component {
 	state = {
 		images: [],
-		// image: {},
+		image: {},
 		sortValue: '',
-		inputValue: ''
+		inputValue: '',
+		isImageViewOn: false
 	};
 
 	componentDidMount() {
@@ -26,12 +28,12 @@ class ImagesContainer extends Component {
 		});
 	};
 
-	handleSortImages = (event) => {
-		console.log('this.state.sortValue'.this.state.sortValue);
-		this.setState({
-			sortValue: event.target.value
-		});
-	};
+	// handleSortImages = (event) => {
+	// 	console.log('this.state.sortValue'.this.state.sortValue);
+	// 	this.setState({
+	// 		sortValue: event.target.value
+	// 	});
+	// };
 
 	sortImages = (images) => {
 		if (this.state.sortValue === 'location') {
@@ -49,7 +51,23 @@ class ImagesContainer extends Component {
 		}
 	};
 
+	handleImageView = (imageItem) => {
+		//  console.log("click", petItem)
+		this.setState({
+			image: imageItem,
+			isImageViewOn: !this.state.isImageViewOn
+		});
+	};
+
+	handleImageGoBack = () => {
+		this.setState({
+			image: {},
+			isImageViewOn: false
+		});
+	};
+
 	render() {
+		console.log(this.state);
 		const filteredImages = this.state.images.filter((image) => {
 			return image.location.toLowerCase().includes(this.state.inputValue.toLowerCase());
 		});
@@ -59,8 +77,24 @@ class ImagesContainer extends Component {
 				<Images
 					// key={this.state.id} images={this.state.images}
 					images={this.sortImages(filteredImages)}
+					// <select name="sortValue" onChange={this.handleSortPets}>
 				/>
-				<SearchBar imageFilterOnChange={this.imageFilterOnChange} onChange={this.handleSortImages} />
+				<div className="container">
+					{this.state.isImageViewOn ? (
+						<ImageCard image={this.state.image} handleImageGoBack={this.handleImageGoBack} />
+					) : (
+						<SearchBar
+							images={this.sortImages(filteredImages)}
+							handleImageView={this.handleImageView}
+							imageFilterOnChange={this.imageFilterOnChange}
+							inputValue={this.state.inputValue}
+							// onChange={this.handleSortImages}
+						/>
+						// />
+						// <SearchBar imageFilterOnChange={this.imageFilterOnChange} onChange={this.handleSortImages}
+						// />
+					)}
+				</div>
 			</div>
 		);
 	}
