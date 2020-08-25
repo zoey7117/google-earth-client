@@ -9,7 +9,8 @@ class ImagesContainer extends Component {
 		image: {},
 		sortValue: '',
 		inputValue: '',
-		isImageViewOn: false
+		isImageViewOn: false,
+		clicked: false
 	};
 
 	componentDidMount() {
@@ -65,7 +66,10 @@ class ImagesContainer extends Component {
 			isImageViewOn: false
 		});
 	};
-
+	cardClickHandler = (e) => {
+		// localStorage.setItem('selectedCard', photoId);
+		console.log('click', 'e.target', e.target);
+	};
 	render() {
 		console.log(this.state);
 		const filteredImages = this.state.images.filter((image) => {
@@ -77,6 +81,7 @@ class ImagesContainer extends Component {
 				<Images
 					// key={this.state.id} images={this.state.images}
 					images={this.sortImages(filteredImages)}
+					onClick={this.cardClickHandler}
 					// <select name="sortValue" onChange={this.handleSortPets}>
 				/>
 				<div className="container">

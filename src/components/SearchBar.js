@@ -2,7 +2,7 @@ import React from 'react';
 import ImageCard from './ImageCard';
 
 const SearchBar = (props) => {
-	console.log(props, 'props.images', props.images);
+	// console.log(props, 'props.images', props.images);
 	return (
 		<div>
 			<div className="searchBar">
