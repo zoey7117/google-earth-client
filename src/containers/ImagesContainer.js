@@ -15,7 +15,6 @@ class ImagesContainer extends Component {
 
 	componentDidMount() {
 		fetch('http://localhost:3000/images').then((resp) => resp.json()).then((resp) => {
-			//  console.log(petsData)
 			this.setState({
 				images: resp
 			});
@@ -23,30 +22,11 @@ class ImagesContainer extends Component {
 	}
 
 	handleCardView = (cardItem) => {
-		//  console.log("click", petItem)
 		this.setState({
 			image: cardItem,
 			isCardViewOn: !this.state.isCardViewOn
 		});
 	};
-
-	// cardClickHandler = (e) => {
-	// 	let cardId = e.target.dataset.id;
-	// 	this.props.images.find((image) => {
-	// 		return image.id === cardId;
-	// 	});
-	// 	console.log('hi, cardId', cardId);
-	// 	fetch(`http://localhost:3000/images/${cardId}`)
-	// 		.then((resp) => resp.json())
-	// 		// .then(console.log);
-	// 		.then((resp) => {
-	// 			this.setState({
-	// 				image: resp
-	// 			});
-	// 			console.log(this.state.image);
-	// 		});
-	// 	// console.log('click', 'e.target', e.target, 'e.target.dataset.id', e.target.dataset.id, this.props);
-	// };
 
 	imageFilterOnChange = (event) => {
 		console.log('hi from onChange', event.target.value);
@@ -77,10 +57,7 @@ class ImagesContainer extends Component {
 			isImageViewOn: false
 		});
 	};
-	// cardClickHandler = (e) => {
-	// 	// localStorage.setItem('selectedCard', photoId);
-	// 	console.log('click', 'e.target', e.target);
-	// };
+
 	render() {
 		console.log('this.state', this.state, 'this.state.image', this.state.image);
 		const filteredImages = this.state.images.filter((image) => {
