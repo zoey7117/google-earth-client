@@ -4,8 +4,8 @@ import ImageCard from './ImageCard';
 const ImageViewer = (props) => {
 	return (
 		<div>
-			<button onClick={props.handleImageGoBack}>Back</button>
-			<ImageCard image={props.image} handleImageGoBack={props.handleImageGoBack} />
+			<button onClick={props.handleImageHome}>Home</button>
+			<ImageCard image={props.image} handleImageHome={props.handleImageHome} />
 		</div>
 	);
 };

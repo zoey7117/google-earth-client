@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from '../components/SearchBar';
 import Images from '../components/Images';
-import ImageCard from '../components/ImageCard';
+import ImageViewer from '../components/ImageViewer';
 
 class ImagesContainer extends Component {
 	state = {
@@ -9,7 +9,7 @@ class ImagesContainer extends Component {
 		image: {},
 		sortValue: '',
 		inputValue: '',
-		isImageViewOn: false,
+		isCardViewOn: false,
 		clicked: false
 	};
 
@@ -22,19 +22,38 @@ class ImagesContainer extends Component {
 		});
 	}
 
+	handleCardView = (cardItem) => {
+		//  console.log("click", petItem)
+		this.setState({
+			image: cardItem,
+			isCardViewOn: !this.state.isCardViewOn
+		});
+	};
+
+	// cardClickHandler = (e) => {
+	// 	let cardId = e.target.dataset.id;
+	// 	this.props.images.find((image) => {
+	// 		return image.id === cardId;
+	// 	});
+	// 	console.log('hi, cardId', cardId);
+	// 	fetch(`http://localhost:3000/images/${cardId}`)
+	// 		.then((resp) => resp.json())
+	// 		// .then(console.log);
+	// 		.then((resp) => {
+	// 			this.setState({
+	// 				image: resp
+	// 			});
+	// 			console.log(this.state.image);
+	// 		});
+	// 	// console.log('click', 'e.target', e.target, 'e.target.dataset.id', e.target.dataset.id, this.props);
+	// };
+
 	imageFilterOnChange = (event) => {
 		console.log('hi from onChange', event.target.value);
 		this.setState({
 			inputValue: event.target.value
 		});
 	};
-
-	// handleSortImages = (event) => {
-	// 	console.log('this.state.sortValue'.this.state.sortValue);
-	// 	this.setState({
-	// 		sortValue: event.target.value
-	// 	});
-	// };
 
 	sortImages = (images) => {
 		if (this.state.sortValue === 'location') {
@@ -52,54 +71,43 @@ class ImagesContainer extends Component {
 		}
 	};
 
-	handleImageView = (imageItem) => {
-		//  console.log("click", petItem)
-		this.setState({
-			image: imageItem,
-			isImageViewOn: !this.state.isImageViewOn
-		});
-	};
-
-	handleImageGoBack = () => {
+	handleImageHome = () => {
 		this.setState({
 			image: {},
 			isImageViewOn: false
 		});
 	};
-	cardClickHandler = (e) => {
-		// localStorage.setItem('selectedCard', photoId);
-		console.log('click', 'e.target', e.target);
-	};
+	// cardClickHandler = (e) => {
+	// 	// localStorage.setItem('selectedCard', photoId);
+	// 	console.log('click', 'e.target', e.target);
+	// };
 	render() {
-		console.log(this.state);
+		console.log('this.state', this.state, 'this.state.image', this.state.image);
 		const filteredImages = this.state.images.filter((image) => {
 			return image.location.toLowerCase().includes(this.state.inputValue.toLowerCase());
 		});
 
 		return (
 			<div>
-				<Images
-					// key={this.state.id} images={this.state.images}
-					images={this.sortImages(filteredImages)}
-					onClick={this.cardClickHandler}
-					// <select name="sortValue" onChange={this.handleSortPets}>
-				/>
-				<div className="container">
-					{this.state.isImageViewOn ? (
-						<ImageCard image={this.state.image} handleImageGoBack={this.handleImageGoBack} />
-					) : (
+				{this.state.isCardViewOn ? (
+					<ImageViewer image={this.state.image} handleImageHome={this.handleImageHome} />
+				) : (
+					<div>
+						<Images
+							key={this.state.id}
+							images={this.state.images}
+							images={this.sortImages(filteredImages)}
+							handleCardView={this.handleCardView}
+						/>
 						<SearchBar
 							images={this.sortImages(filteredImages)}
-							handleImageView={this.handleImageView}
+							handleCardView={this.handleCardView}
 							imageFilterOnChange={this.imageFilterOnChange}
 							inputValue={this.state.inputValue}
-							// onChange={this.handleSortImages}
+							onChange={this.handleSortImages}
 						/>
-						// />
-						// <SearchBar imageFilterOnChange={this.imageFilterOnChange} onChange={this.handleSortImages}
-						// />
-					)}
-				</div>
+					</div>
+				)}
 			</div>
 		);
 	}

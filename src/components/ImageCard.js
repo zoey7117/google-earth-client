@@ -6,14 +6,14 @@ class ImageCard extends React.Component {
 	// const {name, image, location} = props.image
 
 	render() {
-		console.log('hi', this.props);
+		const { image } = this.props;
+		console.log('hi', this.props, this.props.image, this.props.name, this.props.location);
 		return (
 			<Card>
-				{/* className="image-card" onClick={() => props.handleImageGoBack(props.image)}>
 				<Image src={image.image} className="solo-image" />
 				<Card.Content>
-					<h3>image.name</h3>
-				</Card.Content> */}
+					<h3>{image.name}</h3>
+				</Card.Content>
 			</Card>
 		);
 	}
