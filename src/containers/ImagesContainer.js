@@ -3,6 +3,8 @@ import SearchBar from '../components/SearchBar';
 import Images from '../components/Images';
 import ImageViewer from '../components/ImageViewer';
 
+let CardId;
+
 class ImagesContainer extends Component {
 	state = {
 		images: [],
@@ -21,9 +23,10 @@ class ImagesContainer extends Component {
 		});
 	}
 
-	handleCardView = (cardItem) => {
+	handleCardView = (cardId) => {
+		console.log('click', cardId);
 		this.setState({
-			image: cardItem,
+			image: cardId,
 			isCardViewOn: !this.state.isCardViewOn
 		});
 	};
@@ -34,6 +37,36 @@ class ImagesContainer extends Component {
 			inputValue: event.target.value
 		});
 	};
+
+	// adoptDoggy = (petItem) => {
+	// 	// console.log("bring doggy", petItem)
+	// 	this.setState({
+	// 		pet: petItem
+	// 	});
+	// 	fetch('http://localhost:3000/adoptions', {
+	// 		method: 'POST',
+	// 		headers: {
+	// 			'Content-Type': 'application/json',
+	// 			Accept: 'application/json',
+	// 			Authorization: localStorage.token
+	// 		},
+	// 		body: JSON.stringify({
+	// 			user_id: localStorage.loggedInUserId,
+	// 			pet_id: petItem.id
+	// 		})
+	// 	})
+	// 		.then((res) => res.json())
+	// 		.then((adoptedDoggy) => {
+	// 			// console.log(adoptedDoggy)
+	// 			const updatedPets = this.state.pets.map((pet) => {
+	// 				return pet.id === adoptedDoggy.id ? adoptedDoggy : pet;
+	// 			});
+	// 			this.setState({
+	// 				pets: updatedPets,
+	// 				pet: adoptedDoggy
+	// 			});
+	// 		});
+	// };
 
 	sortImages = (images) => {
 		if (this.state.sortValue === 'location') {
@@ -58,16 +91,37 @@ class ImagesContainer extends Component {
 		});
 	};
 
+	renderSingleImage = (cardId) => {
+		console.log(cardId);
+	};
+
 	render() {
-		console.log('this.state', this.state, 'this.state.image', this.state.image);
+		const imageId = this.state.image;
+		console.log(
+			'this.state',
+			this.state,
+			'this.state.image',
+			this.state.image,
+			'this.state.id',
+			this.state.id,
+			'imageId',
+			imageId,
+			'this.state.image.id',
+			this.state.image.id
+		);
 		const filteredImages = this.state.images.filter((image) => {
 			return image.location.toLowerCase().includes(this.state.inputValue.toLowerCase());
 		});
 
 		return (
 			<div>
+				{this.renderSingleImage()}
 				{this.state.isCardViewOn ? (
-					<ImageViewer image={this.state.image} handleImageHome={this.handleImageHome} />
+					<ImageViewer
+						image={this.state.image}
+						handleImageHome={this.handleImageHome}
+						selectImageId={this.state.image}
+					/>
 				) : (
 					<div>
 						<Images

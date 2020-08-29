@@ -9,7 +9,7 @@ class Images extends React.Component {
 
 		return allimages.map((photo) => {
 			return (
-				<Card key={photo.id} className="photo" onClick={() => this.props.handleCardView(this.props.image)}>
+				<Card key={photo.id} className="photo" onClick={() => this.props.handleCardView(photo.id)}>
 					<Image src={photo.image} alt="" data-id={photo.id} className="photo-image" height={265} />
 				</Card>
 			);
