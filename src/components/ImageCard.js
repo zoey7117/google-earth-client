@@ -19,10 +19,10 @@ class ImageCard extends React.Component {
 		);
 		return (
 			<Card>
-				{/* <Image src={image.image} className="solo-image" />
+				<Image src={image.image} className="solo-image" />
 				<Card.Content>
-					<h3>{image.name}</h3> */}
-				{/* </Card.Content> */}
+					<h3>{image.name}</h3>
+				</Card.Content>
 			</Card>
 		);
 	}
