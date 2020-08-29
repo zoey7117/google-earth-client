@@ -13,15 +13,13 @@ const SearchBar = (props) => {
 					</label>
 					<br />
 					<input type="text" value={props.inputValue} onChange={props.imageFilterOnChange} />
-
-					<div className="image-list">
-						{props.images.map((image) => {
-							// console.log(image);
-							return <Images image={image} key={image.id} handleCardView={props.handleCardView} />;
-						})}
-					</div>
 				</div>
 			</div>
+
+			{props.images.map((image) => {
+				// console.log(image);
+				return <Images image={image} key={image.id} handleCardView={props.handleCardView} />;
+			})}
 		</div>
 	);
 };

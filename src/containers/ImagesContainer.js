@@ -63,18 +63,14 @@ class ImagesContainer extends Component {
 					<ImageViewer image={this.state.image} />
 				) : (
 					<div>
-						<Images
-							key={this.state.id}
-							images={this.state.images}
-							images={this.sortImages(filteredImages)}
-							handleCardView={this.handleCardView}
-						/>
 						<SearchBar
 							images={this.sortImages(filteredImages)}
 							handleCardView={this.handleCardView}
 							imageFilterOnChange={this.imageFilterOnChange}
 							inputValue={this.state.inputValue}
 							onChange={this.handleSortImages}
+							// key={this.state.id}
+							// images={this.state.images}
 						/>
 					</div>
 				)}
