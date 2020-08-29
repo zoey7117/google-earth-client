@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SearchBar from '../components/SearchBar';
-import Images from '../components/Images';
 import ImageViewer from '../components/ImageViewer';
 
-class ImagesContainer extends Component {
+class ImagesContainer extends React.Component {
 	state = {
 		images: [],
 		image: {},
 		sortValue: '',
 		inputValue: '',
-		isCardViewOn: false,
-		clicked: false
+		isCardViewOn: false
 	};
 
 	componentDidMount() {
@@ -29,7 +27,6 @@ class ImagesContainer extends Component {
 	};
 
 	imageFilterOnChange = (event) => {
-		console.log('hi from onChange', event.target.value);
 		this.setState({
 			inputValue: event.target.value
 		});
@@ -52,7 +49,6 @@ class ImagesContainer extends Component {
 	};
 
 	render() {
-		console.log('this.state', this.state, 'this.state.image', this.state.image);
 		const filteredImages = this.state.images.filter((image) => {
 			return image.location.toLowerCase().includes(this.state.inputValue.toLowerCase());
 		});
@@ -69,8 +65,6 @@ class ImagesContainer extends Component {
 							imageFilterOnChange={this.imageFilterOnChange}
 							inputValue={this.state.inputValue}
 							onChange={this.handleSortImages}
-							// key={this.state.id}
-							// images={this.state.images}
 						/>
 					</div>
 				)}

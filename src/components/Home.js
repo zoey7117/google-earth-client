@@ -7,11 +7,11 @@ class Home extends React.Component {
 		return (
 			<div>
 				<div className="main-container">
-					<div className="container">
-						<ImagesContainer />
-					</div>
+					{/* <div className="container"> */}
+					<ImagesContainer />
 				</div>
 			</div>
+			// </div>
 		);
 	}
 }

@@ -1,30 +1,25 @@
 import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 
-class ImageCard extends React.Component {
-	// const {name, image, location} = props.image
+const ImageCard = (props) => {
+	return (
+		<div className="one-card">
+			{/* <Card> */}
+			<img src={props.image.image} className="solo-image" />
+			{/* <Card.Content> */}
+			<div className="content">
+				<ul>
+					<h3>
+						<li>{props.image.name}</li>
+						<li>{props.image.location}</li>
+						<li>{props.image.continent}</li>
+					</h3>
+				</ul>
+			</div>
+			{/* </Card.Content> */}
+			{/* </Card> */}
+		</div>
+	);
+};
 
-	render() {
-		const { image } = this.props;
-		console.log(
-			'hi',
-			'this.props',
-			this.props,
-			'this.props.image',
-			this.props.image,
-			'this.props.photo',
-			this.props.photo,
-			'this.props.location',
-			this.props.location
-		);
-		return (
-			<Card>
-				<Image src={image.image} className="solo-image" />
-				<Card.Content>
-					<h3>{image.name}</h3>
-				</Card.Content>
-			</Card>
-		);
-	}
-}
 export default ImageCard;
