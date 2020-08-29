@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageCard from './ImageCard';
+import Images from './Images';
 
 const SearchBar = (props) => {
 	// console.log(props, 'props.images', props.images);
@@ -12,29 +13,16 @@ const SearchBar = (props) => {
 					</label>
 					<br />
 					<input type="text" value={props.inputValue} onChange={props.imageFilterOnChange} />
-					{/* <div className="image-list">
+
+					<div className="image-list">
 						{props.images.map((image) => {
-							return <ImageCard image={image} key={image.id} handleImageView={props.handleImageView} />;
+							// console.log(image);
+							return <Images image={image} key={image.id} handleCardView={props.handleCardView} />;
 						})}
-					</div> */}
+					</div>
 				</div>
 			</div>
 		</div>
 	);
 };
 export default SearchBar;
-
-// return(
-// 	<>
-// 		<label htmlFor="search">Search by name </label>
-// 		<input type="text" value ={props.inputValue}  onChange={props.petFilterOnChange}/>
-// 			<div className="dog-list">
-// 				 {
-// 						props.pets.map(pet => {
-// 						return <PetItem pet={pet} key={pet.id} handlePetView={props.handlePetView}/>
-// 						})
-// 				 }
-// 			</div>
-// 	 </>
-// 		 )
-// 		}

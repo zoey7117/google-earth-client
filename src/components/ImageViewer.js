@@ -5,8 +5,7 @@ const ImageViewer = (props) => {
 	console.log('from imageviewer props', props);
 	return (
 		<div>
-			<button onClick={props.handleImageHome}>Home</button>
-			<ImageCard image={props.image} handleImageHome={props.handleImageHome} />
+			<ImageCard image={props.image} />
 		</div>
 	);
 };

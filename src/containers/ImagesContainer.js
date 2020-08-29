@@ -3,8 +3,6 @@ import SearchBar from '../components/SearchBar';
 import Images from '../components/Images';
 import ImageViewer from '../components/ImageViewer';
 
-let CardId;
-
 class ImagesContainer extends Component {
 	state = {
 		images: [],
@@ -12,13 +10,8 @@ class ImagesContainer extends Component {
 		sortValue: '',
 		inputValue: '',
 		isCardViewOn: false,
-		selectedCard: 0
+		clicked: false
 	};
-	// handleClick = (id) => {
-	// 	this.setState({ selected: id });
-	// };
-
-	// v;
 
 	componentDidMount() {
 		fetch('http://localhost:3000/images').then((resp) => resp.json()).then((resp) => {
@@ -28,11 +21,9 @@ class ImagesContainer extends Component {
 		});
 	}
 
-	handleCardView = (cardId) => {
-		console.log('click', cardId);
+	handleCardView = (cardItem) => {
 		this.setState({
-			selectedCard: cardId,
-			image: cardId,
+			image: cardItem,
 			isCardViewOn: !this.state.isCardViewOn
 		});
 	};
@@ -45,11 +36,11 @@ class ImagesContainer extends Component {
 	};
 
 	sortImages = (images) => {
-		if (this.state.sortValue === 'continent') {
+		if (this.state.sortValue === 'location') {
 			return [ ...images ].sort((a, b) => {
-				if (a.continent > b.continent) {
+				if (a.location > b.location) {
 					return 1;
-				} else if (a.continent < b.continent) {
+				} else if (a.location < b.location) {
 					return -1;
 				} else {
 					return 0;
@@ -60,45 +51,16 @@ class ImagesContainer extends Component {
 		}
 	};
 
-	handleImageHome = () => {
-		this.setState({
-			image: {},
-			isImageViewOn: false
-		});
-	};
-
-	renderSingleImage = (cardId) => {
-		console.log(cardId);
-	};
-
 	render() {
-		const imageId = this.state.image;
-		console.log(
-			'this.state',
-			this.state,
-			'this.state.image',
-			this.state.image,
-			'this.state.id',
-			this.state.id,
-			'imageId',
-			imageId,
-			'this.state.image.id',
-			this.state.image.id
-		);
+		console.log('this.state', this.state, 'this.state.image', this.state.image);
 		const filteredImages = this.state.images.filter((image) => {
-			console.log('image, line 89', image, 'image.continent', image.continent);
 			return image.location.toLowerCase().includes(this.state.inputValue.toLowerCase());
 		});
 
 		return (
 			<div>
-				{this.renderSingleImage()}
 				{this.state.isCardViewOn ? (
-					<ImageViewer
-						image={this.state.image}
-						handleImageHome={this.handleImageHome}
-						selectImageId={this.state.image}
-					/>
+					<ImageViewer image={this.state.image} />
 				) : (
 					<div>
 						<Images

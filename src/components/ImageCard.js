@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
-import { render } from 'react-dom';
 
 class ImageCard extends React.Component {
 	// const {name, image, location} = props.image

@@ -7,7 +7,6 @@ class Home extends React.Component {
 		return (
 			<div>
 				<div className="main-container">
-					<SearchBar />
 					<div className="container">
 						<ImagesContainer />
 					</div>

@@ -8,7 +8,7 @@ function App() {
 	return (
 		<div>
 			<Home />
-			<Route path="/image" component={ImageCard} />
+			{/* <Route path="/image" component={ImageCard} /> */}
 		</div>
 	);
 }
