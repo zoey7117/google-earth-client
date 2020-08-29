@@ -12,8 +12,13 @@ class ImagesContainer extends Component {
 		sortValue: '',
 		inputValue: '',
 		isCardViewOn: false,
-		clicked: false
+		selectedCard: 0
 	};
+	// handleClick = (id) => {
+	// 	this.setState({ selected: id });
+	// };
+
+	// v;
 
 	componentDidMount() {
 		fetch('http://localhost:3000/images').then((resp) => resp.json()).then((resp) => {
@@ -26,6 +31,7 @@ class ImagesContainer extends Component {
 	handleCardView = (cardId) => {
 		console.log('click', cardId);
 		this.setState({
+			selectedCard: cardId,
 			image: cardId,
 			isCardViewOn: !this.state.isCardViewOn
 		});
@@ -38,42 +44,12 @@ class ImagesContainer extends Component {
 		});
 	};
 
-	// adoptDoggy = (petItem) => {
-	// 	// console.log("bring doggy", petItem)
-	// 	this.setState({
-	// 		pet: petItem
-	// 	});
-	// 	fetch('http://localhost:3000/adoptions', {
-	// 		method: 'POST',
-	// 		headers: {
-	// 			'Content-Type': 'application/json',
-	// 			Accept: 'application/json',
-	// 			Authorization: localStorage.token
-	// 		},
-	// 		body: JSON.stringify({
-	// 			user_id: localStorage.loggedInUserId,
-	// 			pet_id: petItem.id
-	// 		})
-	// 	})
-	// 		.then((res) => res.json())
-	// 		.then((adoptedDoggy) => {
-	// 			// console.log(adoptedDoggy)
-	// 			const updatedPets = this.state.pets.map((pet) => {
-	// 				return pet.id === adoptedDoggy.id ? adoptedDoggy : pet;
-	// 			});
-	// 			this.setState({
-	// 				pets: updatedPets,
-	// 				pet: adoptedDoggy
-	// 			});
-	// 		});
-	// };
-
 	sortImages = (images) => {
-		if (this.state.sortValue === 'location') {
+		if (this.state.sortValue === 'continent') {
 			return [ ...images ].sort((a, b) => {
-				if (a.location > b.location) {
+				if (a.continent > b.continent) {
 					return 1;
-				} else if (a.location < b.location) {
+				} else if (a.continent < b.continent) {
 					return -1;
 				} else {
 					return 0;
@@ -110,6 +86,7 @@ class ImagesContainer extends Component {
 			this.state.image.id
 		);
 		const filteredImages = this.state.images.filter((image) => {
+			console.log('image, line 89', image, 'image.continent', image.continent);
 			return image.location.toLowerCase().includes(this.state.inputValue.toLowerCase());
 		});
 
