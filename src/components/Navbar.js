@@ -11,3 +11,9 @@ const Navbar = () => {
 	);
 };
 export default Navbar;
+
+// <button
+// className="button icon-left"
+// onClick={this.navigateBack}>
+// Back
+// </button>

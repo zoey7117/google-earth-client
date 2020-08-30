@@ -26,6 +26,13 @@ class ImagesContainer extends React.Component {
 		});
 	};
 
+	handleGoHome = () => {
+		this.setState({
+			image: {},
+			isCardViewOn: false
+		});
+	};
+
 	imageFilterOnChange = (event) => {
 		this.setState({
 			inputValue: event.target.value
@@ -56,7 +63,7 @@ class ImagesContainer extends React.Component {
 		return (
 			<div>
 				{this.state.isCardViewOn ? (
-					<ImageViewer image={this.state.image} />
+					<ImageViewer image={this.state.image} handleGoHome={this.handleGoHome} />
 				) : (
 					<div>
 						<SearchBar

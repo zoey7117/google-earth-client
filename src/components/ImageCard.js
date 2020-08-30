@@ -3,7 +3,7 @@ import { Card, Image } from 'semantic-ui-react';
 
 const ImageCard = (props) => {
 	return (
-		<div className="one-card">
+		<div className="one-card" onClick={() => props.handleGoHome(props.image)}>
 			{/* <Card> */}
 			<img src={props.image.image} className="solo-image" />
 			{/* <Card.Content> */}
