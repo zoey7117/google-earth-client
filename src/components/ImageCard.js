@@ -19,7 +19,7 @@ const ImageCard = (props) => {
 					</h4>
 				</ul>
 
-				<i class="fas fa-arrow-left fa-2x" />
+				<i className="fas fa-arrow-left fa-2x" />
 			</div>
 		</div>
 	);

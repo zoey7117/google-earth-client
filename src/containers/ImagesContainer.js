@@ -12,12 +12,14 @@ class ImagesContainer extends React.Component {
 	};
 
 	componentDidMount() {
-		// fetch('http://localhost:3000/images')
-		fetch('https://google-earth-api.herokuapp.com/images').then((resp) => resp.json()).then((resp) => {
-			this.setState({
-				images: resp
+		fetch('http://localhost:3000/images')
+			// fetch('https://google-earth-api.herokuapp.com/images')
+			.then((resp) => resp.json())
+			.then((resp) => {
+				this.setState({
+					images: resp
+				});
 			});
-		});
 	}
 
 	handleCardView = (cardItem) => {
