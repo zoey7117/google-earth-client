@@ -16,34 +16,78 @@ body {
 	height: 100%;
 	overflow: hidden;
 	font-family: 'News Cycle', sans-serif;
+	color: white;
 }
-#navbar {
-	/* height: 5px; */
-	width: 100vw;
-	position: fixed;
-	/* background: black; */
-	z-index: 50;
+.opener {
+	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: fixed;
+	z-index: 50;
+	width: 100vw;
+	height: 100vh;
+}
+.image-opener {
+	object-fit: cover;
+	justify-self: center;
+	width: 100%;
+	height: 100%;
+}
+.opener-content {
+	position: absolute;
+	z-index: 100;
+	margin: auto;
+	background: black;
+	width: 600px;
+	text-align: center;
+	padding: 30px;
+}
+h1 {
+	font-size: 50px;
+	border-bottom: 1px solid grey;
+	margin-bottom: 20px;
+	padding-bottom: 3px;
+	line-height: .75;
+	margin: 0 50px 30px 50px;
+}
+.opener-content span {
+	font-weight: 700;
+	font-size: 25px;
+}
+p {
+	font-size: 23px;
+}
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid grey;
+	margin: 1em 0;
+	padding: 0;
+	margin: 30px 50px 30px 50px;
+}
+.button {
+	padding: 10px;
+	background: none;
+	border: 1px solid grey;
+	color: white;
+	cursor: pointer;
+	text-decoration: none;
+}
+.button:hover {
+	color: grey;
+	transform: scale(1.15);
 }
 
 .fas {
-	/* border-radius: 50%; */
-	background: black;
-	color: white;
-	position: relative;
-	margin-left: 48vw;
-	margin-top: 20px;
-	padding: 10px;
+	position: absolute;
+	bottom: 14px;
+	left: 20px;
 }
 .fas:hover {
 	color: grey;
 }
-.arrow {
-	position: absolute;
-	bottom: 4px;
-	left: -45vw;
-}
+
 .main-container {
 	position: absolute;
 	top: 0;
@@ -52,7 +96,6 @@ body {
 	right: 0;
 	overflow: auto;
 	background: black;
-	/* z-index: -10; */
 }
 
 .container {
@@ -71,6 +114,14 @@ body {
 	display: inline-grid;
 	position: relative;
 	cursor: pointer;
+	text-align: center;
+	border: grey solid 1px;
+	padding: 1rem;
+	margin-top: -1px;
+	margin-left: -1px;
+}
+.ui.card:last-child {
+	margin-bottom: 40px;
 }
 
 .solo-image {
@@ -79,16 +130,6 @@ body {
 	height: 200%;
 	overflow: hidden;
 }
-.ui.card {
-	text-align: center;
-	letter-spacing: 1px;
-	border: grey solid 1px;
-	padding: 1rem;
-	display: inline-grid;
-	margin-top: -1px;
-	margin-left: -1px;
-	position: relative;
-}
 
 .one-card .solo-image {
 	width: 100vw;
@@ -96,32 +137,23 @@ body {
 	height: 94vh;
 	position: fixed;
 	object-fit: cover;
-
 	top: 0;
 	left: 0;
-	/* right: 0; */
 	z-index: 1;
-
-	/* object-fit: cover; */
 }
+
 ul {
 	justify-content: center;
 	text-align: center;
 	display: flex;
 }
+
 li {
 	display: inline-block;
 	padding-left: 30px;
 }
 
-h3 {
-	color: white;
-	text-align: center;
-	/* padding-top: 50px; */
-	/* text-shadow: 0px 0px 4px rgba(255, 255, 255, .5); */
-}
 h4 {
-	color: white;
 	padding-top: 10px;
 	font-size: 20px;
 }
@@ -134,11 +166,10 @@ span {
 	left: 0;
 	background: black;
 	width: 100vw;
-	/* margin-bottom: 25px; */
 	width: 100px;
-	/* background: rgba(0, 0, 0, .5); */
 	width: 100vw;
-	padding: 20px;
+	padding-bottom: 12px;
+	border-top: 1px solid grey;
 }
 
 .photo-image {
@@ -162,10 +193,10 @@ span {
 .search {
 	position: relative;
 }
-input {
+.search input {
 	align-self: center;
 	background: none;
-	border: 1px solid rgba(255, 255, 255, 0.6);
+	border: grey solid 1px;
 	padding: 5px;
 	color: white;
 }
