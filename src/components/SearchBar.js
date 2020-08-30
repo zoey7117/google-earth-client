@@ -7,7 +7,7 @@ const SearchBar = (props) => {
 			<div className="searchBar">
 				<div className="search">
 					<label htmlFor="search">
-						<h3>search by name of country</h3>
+						<h3>search by name of continent</h3>
 					</label>
 					<br />
 					<input type="text" value={props.inputValue} onChange={props.imageFilterOnChange} />

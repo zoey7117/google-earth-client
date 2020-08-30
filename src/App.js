@@ -7,7 +7,6 @@ import { Route } from 'react-router-dom';
 function App() {
 	return (
 		<div>
-			<Navbar />
 			<Route path="/" component={Home} />
 		</div>
 	);

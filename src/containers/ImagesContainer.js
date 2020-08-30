@@ -57,7 +57,7 @@ class ImagesContainer extends React.Component {
 
 	render() {
 		const filteredImages = this.state.images.filter((image) => {
-			return image.location.toLowerCase().includes(this.state.inputValue.toLowerCase());
+			return image.continent.toLowerCase().includes(this.state.inputValue.toLowerCase());
 		});
 
 		return (

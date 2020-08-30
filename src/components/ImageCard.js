@@ -21,6 +21,9 @@ const ImageCard = (props) => {
 						</li>
 					</h4>
 				</ul>
+				{/* <i class="fas fa-arrow-circle-left fa-2x arrow"
+				/> */}
+				<i class="fas fa-arrow-left fa-2x arrow" />
 			</div>
 			{/* </Card.Content> */}
 			{/* </Card> */}
