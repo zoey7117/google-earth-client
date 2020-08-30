@@ -38,20 +38,23 @@ body {
 	left: 0;
 	right: 0;
 	overflow: auto;
+	background: black;
+	/* z-index: -10; */
 }
 
 .container {
 	width: 100vw;
 	height: 100vh;
 	text-align: center;
-	margin-top: 210px;
+	margin-top: 200px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	padding-top: 20px;
 }
 .ui.card {
 	width: 300px;
-	height: 300px;
+	/* height: 300px; */
 	display: inline-grid;
 	position: relative;
 }
@@ -72,23 +75,49 @@ body {
 	margin-left: -1px;
 	position: relative;
 }
-.card:nth-child(1) {
-	margin-top: 1px;
-}
 
 .one-card .solo-image {
 	width: 100vw;
 	height: auto;
-	height: 100vh;
+	height: 94vh;
 	position: fixed;
 
 	top: 0;
 	left: 0;
 	/* right: 0; */
-	z-index: -1;
+	z-index: 1;
 
 	/* object-fit: cover; */
 }
+ul {
+	justify-content: center;
+	text-align: center;
+	display: flex;
+}
+li {
+	display: inline-block;
+}
+h3 {
+	color: black;
+	text-align: left;
+	/* text-shadow: 0px 0px 4px rgba(255, 255, 255, .5); */
+}
+h4 {
+	color: white;
+}
+.content {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: black;
+	width: 100vw;
+	/* margin-bottom: 25px; */
+	width: 100px;
+	/* background: rgba(0, 0, 0, .5); */
+	width: 100vw;
+	padding: 20px;
+}
+
 .photo-image {
 	object-fit: cover;
 	justify-self: center;
@@ -101,7 +130,7 @@ body {
 	position: fixed;
 	height: 200px;
 	top: 0;
-	background: white;
+	background: black;
 	width: 100vw;
 	align-items: center;
 	text-align: center;

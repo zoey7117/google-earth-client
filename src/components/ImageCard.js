@@ -9,11 +9,11 @@ const ImageCard = (props) => {
 			{/* <Card.Content> */}
 			<div className="content">
 				<ul>
-					<h3>
-						<li>{props.image.name}</li>
-						<li>{props.image.location}</li>
-						<li>{props.image.continent}</li>
-					</h3>
+					<h4>
+						<li>name: {props.image.name}</li>
+						<li>location: {props.image.location}</li>
+						<li>continent: {props.image.continent}</li>
+					</h4>
 				</ul>
 			</div>
 			{/* </Card.Content> */}
