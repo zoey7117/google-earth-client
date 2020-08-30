@@ -10,9 +10,15 @@ const ImageCard = (props) => {
 			<div className="content">
 				<ul>
 					<h4>
-						<li>name: {props.image.name}</li>
-						<li>location: {props.image.location}</li>
-						<li>continent: {props.image.continent}</li>
+						<li>
+							<span>name: </span> {props.image.name}
+						</li>
+						<li>
+							<span> location: </span> {props.image.location}
+						</li>
+						<li>
+							<span> continent: </span> {props.image.continent}
+						</li>
 					</h4>
 				</ul>
 			</div>
