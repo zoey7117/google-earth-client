@@ -20,7 +20,7 @@ class Opener extends React.Component {
 							enjoy!
 						</Link>
 					</div>
-					<img src="https://imgur.com/vNap6kU.png" className="image-opener" />
+					<img src="https://imgur.com/qI8C69i.png" className="image-opener" />
 				</div>
 			</div>
 		);
