@@ -8,7 +8,7 @@ class Opener extends React.Component {
 			<div>
 				<div className="opener">
 					<div className="opener-content">
-						<h1>Google Paints</h1>
+						<h1>Earth Paints</h1>
 						<p>
 							<span>You're looking at Norway</span>, thanks to the Chrome Google Earth Extension. I've
 							screenshot many of the images because of their beauty. It amazes me that the earth from afar
