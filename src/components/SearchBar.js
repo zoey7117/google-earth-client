@@ -1,9 +1,4 @@
-// import React from 'react';
 import React from 'react';
-// import { LazyLoadImage } from 'react-lazy-load-image-component';
-
-// const Images = lazy(() => import('./Images'));
-// import { Card, Image } from 'semantic-ui-react';
 
 import Images from './Images';
 
@@ -28,18 +23,3 @@ const SearchBar = (props) => {
 	);
 };
 export default SearchBar;
-// import React from 'react';
-// import { LazyLoadImage } from 'react-lazy-load-image-component';
-
-// const MyImage = ({ image }) => (
-//   <div>
-//     <LazyLoadImage
-//       alt={image.alt}
-//       height={image.height}
-//       src={image.src} // use normal <img> attributes as props
-//       width={image.width} />
-//     <span>{image.caption}</span>
-//   </div>
-// );
-
-// export default MyImage;
