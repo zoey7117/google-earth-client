@@ -1,9 +1,11 @@
 // import React from 'react';
-import React, { lazy, Suspense } from 'react';
-const Images = lazy(() => import('./Images'));
+import React from 'react';
+// import { LazyLoadImage } from 'react-lazy-load-image-component';
+
+// const Images = lazy(() => import('./Images'));
 // import { Card, Image } from 'semantic-ui-react';
 
-// import Images from './Images';
+import Images from './Images';
 
 const SearchBar = (props) => {
 	return (
@@ -19,14 +21,25 @@ const SearchBar = (props) => {
 			</div>
 			<div className="container">
 				{props.images.map((image) => {
-					return (
-						<Suspense fallback={<div className="loading">still loading</div>}>
-							<Images image={image} key={image.id} handleCardView={props.handleCardView} />
-						</Suspense>
-					);
+					return <Images image={image} key={image.id} handleCardView={props.handleCardView} />;
 				})}
 			</div>
 		</div>
 	);
 };
 export default SearchBar;
+// import React from 'react';
+// import { LazyLoadImage } from 'react-lazy-load-image-component';
+
+// const MyImage = ({ image }) => (
+//   <div>
+//     <LazyLoadImage
+//       alt={image.alt}
+//       height={image.height}
+//       src={image.src} // use normal <img> attributes as props
+//       width={image.width} />
+//     <span>{image.caption}</span>
+//   </div>
+// );
+
+// export default MyImage;
