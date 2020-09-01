@@ -168,6 +168,7 @@ span {
 	width: 100vw;
 	padding-bottom: 12px;
 	border-top: 1px solid grey;
+	z-index: 100;
 }
 
 .photo-image {
@@ -222,7 +223,6 @@ span {
 		width: 100vw;
 		padding-bottom: 40px;
 		border-top: 1px solid grey;
-		z-index: 100;
 	}
 
 	.fas {
