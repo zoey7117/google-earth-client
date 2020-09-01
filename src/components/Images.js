@@ -10,7 +10,7 @@ const Images = (props) => {
 			<LazyLoadImage
 				src={props.image.image}
 				alt=""
-				effect="opacity"
+				effect="blur"
 				data-id={props.id}
 				className="photo-image"
 				width={265}
