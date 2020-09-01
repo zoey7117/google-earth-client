@@ -120,6 +120,10 @@ hr {
 	margin-top: -1px;
 	margin-left: -1px;
 }
+.loading {
+	height: 565px;
+	width: 565px;
+}
 .ui.card:last-child {
 	margin-bottom: 40px;
 }

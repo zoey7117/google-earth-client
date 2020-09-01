@@ -12,8 +12,8 @@ class Opener extends React.Component {
 						<p>
 							<span>You're looking at Norway</span>, thanks to the Chrome Google Earth Extension. I've
 							screenshot many of the images because of their beauty. It amazes me that the earth from afar
-							resembles what artists strive to emulate. I made a search bar for countries with the caveat
-							that they aren't all represented. I've chosen images that mirror paintings imo.
+							resembles what artists emotionally strive to emulate. I made a search bar for countries with
+							the caveat that they aren't all represented. I've chosen images that mirror paintings imo.
 						</p>
 						<hr />
 						<Link to="/home" className="button">

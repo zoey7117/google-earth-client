@@ -1,5 +1,9 @@
-import React from 'react';
-import Images from './Images';
+// import React from 'react';
+import React, { lazy, Suspense } from 'react';
+const Images = lazy(() => import('./Images'));
+// import { Card, Image } from 'semantic-ui-react';
+
+// import Images from './Images';
 
 const SearchBar = (props) => {
 	return (
@@ -15,7 +19,11 @@ const SearchBar = (props) => {
 			</div>
 			<div className="container">
 				{props.images.map((image) => {
-					return <Images image={image} key={image.id} handleCardView={props.handleCardView} />;
+					return (
+						<Suspense fallback={<div className="loading">still loading</div>}>
+							<Images image={image} key={image.id} handleCardView={props.handleCardView} />
+						</Suspense>
+					);
 				})}
 			</div>
 		</div>
