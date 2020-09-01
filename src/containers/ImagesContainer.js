@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar';
 import ImageViewer from '../components/ImageViewer';
+import Lazyload from 'react-lazyload';
 
 class ImagesContainer extends React.Component {
 	state = {
