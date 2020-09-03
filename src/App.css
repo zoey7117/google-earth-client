@@ -201,6 +201,11 @@ span {
 	color: white;
 }
 
+/* .search.text{
+  font-size: 1.15vw;
+  height: 20%;
+} */
+
 @media (max-width: 500px) {
 	.opener-content {
 		margin: auto;
@@ -209,6 +214,9 @@ span {
 		text-align: center;
 		padding: 20px;
 		padding-bottom: 30px;
+	}
+	.search input {
+		width: 100%;
 	}
 	p {
 		font-size: 20px;
