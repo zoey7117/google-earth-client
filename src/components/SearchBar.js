@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Input, Loader } from 'semantic-ui-react';
+// import { Card, Input, Loader } from 'semantic-ui-react';
 
 import Images from './Images';
 
@@ -13,15 +13,15 @@ const SearchBar = (props) => {
 					</label>
 					<br />
 
-					<Input
+					{/* <Input
 						type="text"
 						value={props.inputValue}
 						onChange={props.imageFilterOnChange}
 						className="ui fluid focus input"
 						icon="search"
-					/>
+					/> */}
 
-					{/* <input type="text" value={props.inputValue} onChange={props.imageFilterOnChange} /> */}
+					<input type="text" value={props.inputValue} onChange={props.imageFilterOnChange} />
 				</div>
 			</div>
 			<div className="container">
