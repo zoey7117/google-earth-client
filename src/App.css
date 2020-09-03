@@ -11,6 +11,9 @@ font-family: 'Roboto Condensed', sans-serif; */
 	margin: 0;
 	padding: 0;
 }
+body {
+	font-size: 16px;
+}
 html,
 body {
 	height: 100%;
@@ -199,7 +202,12 @@ span {
 	border: grey solid 1px;
 	padding: 5px;
 	color: white;
+	font-size: 100%;
 }
+/* input,
+select {
+	font-size: 100%;
+} */
 
 @media (max-width: 500px) {
 	.opener-content {
@@ -209,6 +217,9 @@ span {
 		text-align: center;
 		padding: 20px;
 		padding-bottom: 30px;
+	}
+	.search input {
+		width: 100%;
 	}
 	p {
 		font-size: 20px;
