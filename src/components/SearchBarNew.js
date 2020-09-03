@@ -12,16 +12,7 @@ const SearchBar = (props) => {
 						<h4>Search by Name of Country</h4>
 					</label>
 					<br />
-
-					<Input
-						type="text"
-						value={props.inputValue}
-						onChange={props.imageFilterOnChange}
-						className="ui fluid focus input"
-						icon="search"
-					/>
-
-					{/* <input type="text" value={props.inputValue} onChange={props.imageFilterOnChange} /> */}
+					<input type="text" value={props.inputValue} onChange={props.imageFilterOnChange} />
 				</div>
 			</div>
 			<div className="container">
