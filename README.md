@@ -1,7 +1,7 @@
 
 # Earth Paints
 
-Earth Paints is an app to discover images that Google Earth takes from afar. It amazes me that the earth from afar resembles what artists emotionally strive to emulate. Incorporates a search bar where users can search by Country with the caveat they aren't all represented.
+Earth Paints is an app to discover images that Google Earth has taken. It amazes me that the earth from afar resembles what artists emotionally strive to emulate. Incorporates a search bar where users can search by Country with the caveat they aren't all represented.
 
 
 
